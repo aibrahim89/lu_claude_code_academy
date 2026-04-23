@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-primary: #D97706; /* Accent */
+  --color-accent-soft: #FEF3C7;
+  --color-bg: #F8FAFC;
+  --color-ink: #0F172A; /* Slate 900 */
+  --color-ink-sub: #475569; /* Slate 600 */
+  --color-border: #E2E8F0;
+
+  --radius-lg: 1rem;
+  --radius-xl: 2rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-ink antialiased;
+  }
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --color-card: #ffffff;
+  --color-card-foreground: var(--ink);
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--ink);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #F1F5F9;
+  --color-secondary-foreground: var(--ink-sub);
+  --color-muted: #F1F5F9;
+  --color-muted-foreground: var(--ink-sub);
+  --color-accent: var(--accent-soft);
+  --color-accent-foreground: var(--primary);
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+}
+
+@layer utilities {
+  .bento-card {
+    @apply bg-card border border-border rounded-lg shadow-sm transition-all hover:shadow-md;
+  }
+  .bento-card-large {
+    @apply bg-linear-to-br from-[#1e293b] to-[#0f172a] text-white border-none;
+  }
+}

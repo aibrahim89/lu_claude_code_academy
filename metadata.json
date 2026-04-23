@@ -1,0 +1,12 @@
+{
+  "name": "Claude Code Academy",
+  "description": "A comprehensive guide and learning platform for Claude Code CLI features, including a playground, config builder, cheat sheet, and interactive assessments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "Interactive Feature Catalog",
+    "CLI Playground Simulation",
+    "Visual Config Generator",
+    "Skill Level Assessment",
+    "Integrated Blog System"
+  ]
+}
