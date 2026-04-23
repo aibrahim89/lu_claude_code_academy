@@ -31,9 +31,18 @@ const TerminalSimulator = forwardRef<TerminalHandle, TerminalSimulatorProps>(({ 
   const [isCopied, setIsCopied] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const aiRef = useRef<GoogleGenAI | null>(null);
 
-  // Initialize Gemini
-  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
+  const getAI = () => {
+    if (!aiRef.current) {
+      const key = process.env.GEMINI_API_KEY;
+      if (!key || key === 'undefined') {
+        throw new Error('GEMINI_API_KEY is missing. Please set it in your environment.');
+      }
+      aiRef.current = new GoogleGenAI({ apiKey: key });
+    }
+    return aiRef.current;
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -81,7 +90,7 @@ const TerminalSimulator = forwardRef<TerminalHandle, TerminalSimulatorProps>(({ 
         COMMAND: ${cmd}
       `;
 
-      const response = await ai.models.generateContent({
+      const response = await getAI().models.generateContent({
         model: "gemini-3-flash-preview",
         contents: systemPrompt,
       });
