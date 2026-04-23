@@ -22,9 +22,15 @@ I have prepared this project for easy deployment to GitHub Pages. Follow these s
 
 In `.env` (create it if it doesn't exist), ensure you have:
 ```env
-VITE_BASE_PATH=/claude-code-academy/
+VITE_BASE_PATH=/lu_claude_code_academy/
 ```
-*Note: Replace `claude-code-academy` with your actual repository name if it's different. This is crucial because GitHub Pages serves project sites from subfolders (e.g., `username.github.io/repo-name/`).*
+*Note: I have already hardcoded `/lu_claude_code_academy/` as the default in `vite.config.ts`, so it should work out of the box!*
+
+### Routing Note
+I have switched the application to use **HashRouter**. This means your URLs will now look like:
+`https://aibrahim89.github.io/lu_claude_code_academy/#/learn`
+
+This is much more reliable for GitHub Pages because it prevents "404 Not Found" errors when you refresh the page on a sub-route.
 
 ## Deployment Command
 

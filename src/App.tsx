@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Learn from './pages/Learn';
@@ -20,7 +20,7 @@ import { DynamicDataProvider } from './context/DynamicDataContext';
 export default function App() {
   return (
     <DynamicDataProvider>
-      <Router basename={import.meta.env.VITE_BASE_PATH || '/'}>
+      <Router>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
