@@ -20,7 +20,7 @@ import { DynamicDataProvider } from './context/DynamicDataContext';
 export default function App() {
   return (
     <DynamicDataProvider>
-      <Router>
+      <Router basename={import.meta.env.VITE_BASE_PATH || '/'}>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
